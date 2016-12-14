@@ -1,0 +1,34 @@
+<h1> {{title}} </h1>
+<div class='panel-body'>
+<div class='col-md-2'> Filter by :</div>
+<div class="col-md-4"> 
+    <input type = 'text' [(ngModel)]='listFilter'/>
+</div>
+</div>
+<div>Filtered by:{{listFilter}}
+</div>
+<div><button (click) = 'showImage()'>Show Artist Image</button></div>
+<div class = 'table-responsive'>
+<table class = 'table' *ngIf ='(artists && artists.length)'> <! if there are artists and length greather than 0 >
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Genre</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor='let artist of artists'> 
+    <td>{{artist.id}}</td>
+    <td>{{artist.name}}</td>
+    <td>{{artist.genre}}</td>
+    <td *ngIf = 'showImages'>
+    <img [src] = 'artist.imgUrl'
+         [style.width.px] = 'imgWidth'
+         [style.margin.px] = 'imgMargin'
+    >
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
