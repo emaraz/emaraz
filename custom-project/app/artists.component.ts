@@ -13,7 +13,7 @@ export class ArtistsComponent implements OnInit {
      showImages: boolean;
      imgMargin = 150;
      imgWidth = 50;
-     listFilter = 'Genre';
+     listFilter = '';
     constructor(private artistService: ArtistService) {
     }
 
@@ -25,6 +25,9 @@ export class ArtistsComponent implements OnInit {
     showImage(): void {
         this.showImages = !this.showImages;
     }
+    onNotify(msg: string): void{
+        this.title = 'My Artists ' + msg;
+    }
 }
 
 export class Artist {
@@ -32,4 +35,5 @@ export class Artist {
     id: number;
     genre: string;
     imgUrl: string;
+    starRating: number;
 }

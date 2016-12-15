@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: 'templates/app.component.html',
+  styleUrls: ['css/app.component.css']
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { name = 'Music World'; }

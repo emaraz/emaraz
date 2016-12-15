@@ -1,31 +1,37 @@
 <h1> {{title}} </h1>
-<div class='panel-body'>
-<div class='col-md-2'> Filter by :</div>
-<div class="col-md-4"> 
+<div>
+<div > Filter by :</div>
+<div> 
     <input type = 'text' [(ngModel)]='listFilter'/>
 </div>
 </div>
 <div>Filtered by:{{listFilter}}
 </div>
 <div><button (click) = 'showImage()'>Show Artist Image</button></div>
-<div class = 'table-responsive'>
+<div>
 <table class = 'table' *ngIf ='(artists && artists.length)'> <! if there are artists and length greather than 0 >
 <thead>
 <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Genre</th>
+    <th>Rating</th>
+    <th>Logo</th>
 </tr>
 </thead>
 <tbody>
-<tr *ngFor='let artist of artists'> 
+<tr *ngFor='let artist of artists | artistFilter: listFilter'>
     <td>{{artist.id}}</td>
-    <td>{{artist.name}}</td>
+    <td><a [routerLink] = "['/artist', artist.id]">{{artist.name}}</a></td>
     <td>{{artist.genre}}</td>
+    <td>
+        <starz [rating] = 'artist.starRating'
+            (notify) = 'onNotify($event)'>
+        </starz>
+    </td>
     <td *ngIf = 'showImages'>
-    <img [src] = 'artist.imgUrl'
+        <img [src] = 'artist.imgUrl'
          [style.width.px] = 'imgWidth'
-         [style.margin.px] = 'imgMargin'
     >
     </td>
 </tr>
