@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ArtistService} from './artists.service';
+import {Artist} from './artists.component';
 
 @Component({
 
@@ -11,14 +13,20 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class ArtistDetailComponent implements OnInit {
     title: string = 'Artist Details!';
-    constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+    artist: Artist;
+    id: number;
+    imgWidth: number = 100;
+    constructor(private activatedRoute: ActivatedRoute, private _router: Router, private service: ArtistService) {
 
     }
     ngOnInit() {
-        let id = this.activatedRoute.snapshot.params['id'];
-        this.title = 'Artist ' + `${id}` + ' details!';
+        let _id = this.activatedRoute.snapshot.params['id'];
+        this.id = _id;
+        this.artist = this.service.getArtist(this.id - 1);
+        this.title = this.artist.name + ' details!';
     }
-    onBackClick(): void{
-        this.router.navigate(['/artists']);
+
+    onBackClick() {
+        this._router.navigate(['/artists']);
     }
 }

@@ -20,6 +20,6 @@ export class StarsComponent implements OnChanges {
 
     onClick(): void {
         this.title = 'STARZ';
-        this.notify.emit('Stars Clicked ;)');
+        this.notify.emit('new rating ' + this.rating);
     }
 }

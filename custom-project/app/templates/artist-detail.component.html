@@ -1,4 +1,27 @@
 <h3>{{title}}</h3>
 <div>
-    <button (click)='onBackClick()'>Back</button>
+<table class = 'table' *ngIf ='(artist)'>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Rating</th>
+    <th>Logo</th>
+</tr>
+</thead>
+<tbody>
+    <td>{{artist.id}}</td>
+    <td>{{artist.name}}</td>
+    <td>{{artist.genre}}</td>
+    <td>{{artist.starRating}} / 5</td>
+    <td>
+        <img [src] = 'artist.imgUrl'
+        [style.width.px] = 'imgWidth'>
+         </td>
+</tbody>
+</table>
+</div>
+<div>
+    <button (click) = 'onBackClick()' >Back</button>
 </div>

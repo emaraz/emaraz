@@ -9,11 +9,11 @@ import {ArtistService} from './artists.service';
 })
 export class ArtistsComponent implements OnInit {
     title = 'My Artists';
-     artists: Artist[];
-     showImages: boolean;
-     imgMargin = 150;
-     imgWidth = 50;
-     listFilter = '';
+    artists: Artist[];
+    showImages: boolean;
+    imgMargin = 150;
+    imgWidth = 50;
+    listFilter = '';
     constructor(private artistService: ArtistService) {
     }
 
@@ -25,7 +25,7 @@ export class ArtistsComponent implements OnInit {
     showImage(): void {
         this.showImages = !this.showImages;
     }
-    onNotify(msg: string): void{
+    onNotify(msg: string): void {
         this.title = 'My Artists ' + msg;
     }
 }
