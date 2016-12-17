@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {HttpModule} from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import {ArtistsComponent} from './artists.component';
@@ -12,7 +13,7 @@ import {WelcomeComponent} from './welcome.component';
 import {ArtistFilter} from './filter.pipe';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,
+  imports:      [ BrowserModule, FormsModule, HttpModule,
    RouterModule.forRoot([
      {
        path: 'welcome', component: WelcomeComponent
@@ -27,7 +28,8 @@ import {ArtistFilter} from './filter.pipe';
        path: 'artist/:id', component: ArtistDetailComponent
     }
   ]) ],
-  declarations: [ AppComponent, ArtistsComponent, StarsComponent, ArtistDetailComponent, WelcomeComponent, ArtistFilter ],
+  declarations: [ AppComponent, ArtistsComponent,
+    StarsComponent, ArtistDetailComponent, WelcomeComponent, ArtistFilter ],
   providers: [ArtistService],
   bootstrap:    [ AppComponent ]
 })

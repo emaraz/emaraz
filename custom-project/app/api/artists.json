@@ -1,36 +1,4 @@
-import {Artist} from './artists.component';
-import {ARTISTS} from './mock-artists';
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-import {Response} from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-
-@Injectable()
-
-export class ArtistService {
-    url: string = 'app/api/artists.json';
-    constructor(private _http: Http) {
-      //  this.sendArtists();
-
-    }
-    getArtists(): Observable<Artist[]> { //Artist[]
-
-        return this._http.get(this.url).
-        map((response: Response) => <Artist[]> response.json()).
-        do(data => console.log('All ' + JSON.stringify(data)))
-        .catch(this.handleError);
-    }
-
-    getArtist(id: number): Artist {
-
-        return ARTISTS[id];
-    }
-
-    /*sendArtists(): void {
-        this._http.post(this.url, [
+[
   {
       "id": 1, "name": "Guns N Roses", "genre": "Rock",
     "imgUrl": "http://cdn.gunsnroses.com//non_secure/images/20161204/gunsnroses_instagram_1080x1080_static1480917980/large.jpg",
@@ -71,11 +39,4 @@ export class ArtistService {
     "imgUrl": "http://wallpapercave.com/wp/nRMUMdb.jpg",
     "starRating": 3.75
   }
-]);
-    }*/
-
-    private handleError(error: Response ) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
-    }
-}
+]
