@@ -12,8 +12,8 @@ import {Artist} from './artists.component';
 })
 
 export class ArtistDetailComponent implements OnInit {
-    title: string = 'Artist Details!';
     artist: Artist;
+    errorMsg: string;
     id: number;
     imgWidth: number = 100;
     constructor(private activatedRoute: ActivatedRoute, private _router: Router, private service: ArtistService) {
@@ -22,8 +22,9 @@ export class ArtistDetailComponent implements OnInit {
     ngOnInit() {
         let _id = this.activatedRoute.snapshot.params['id'];
         this.id = _id;
-        this.artist = this.service.getArtist(this.id - 1);
-        this.title = this.artist.name + ' details!';
+        this.service.getArtists()
+        .subscribe(artists => this.artist = <Artist>artists[this.id-1],
+        error => this.errorMsg = <any> error );
     }
 
     onBackClick() {

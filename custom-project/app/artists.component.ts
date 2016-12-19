@@ -11,6 +11,7 @@ import {ArtistService} from './artists.service';
 export class ArtistsComponent implements OnInit {
     title = 'My Artists';
     artists: Artist[];
+    artist: Artist;
     showImages: boolean;
     imgMargin = 150;
     imgWidth = 50;

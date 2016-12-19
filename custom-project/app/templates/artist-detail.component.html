@@ -1,4 +1,6 @@
-<h3>{{title}}</h3>
+<div *ngIf = '(artist)'>
+    <h3>{{artist.name}} Details!</h3>
+    </div>
 <div>
 <table class = 'table' *ngIf ='(artist)'>
 <thead>
