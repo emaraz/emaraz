@@ -25,5 +25,17 @@
 </table>
 </div>
 <div>
+<table class = 'table' *ngIf ='(artist)'>
+<thead>
+<tr>
+    <th>Album</th>
+</tr>
+</thead>
+<tbody *ngFor='let album of artist.albums'>
+    <td> {{album}}</td>
+</tbody>
+</table>
+</div>
+<div>
     <button (click) = 'onBackClick()' >Back</button>
 </div>

@@ -41,4 +41,5 @@ export class Artist {
     genre: string;
     imgUrl: string;
     starRating: number;
+    albums: string[]
 }

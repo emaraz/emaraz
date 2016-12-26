@@ -13,6 +13,7 @@ import {Artist} from './artists.component';
 
 export class ArtistDetailComponent implements OnInit {
     artist: Artist;
+    albums: string[];
     errorMsg: string;
     id: number;
     imgWidth: number = 100;
@@ -23,7 +24,7 @@ export class ArtistDetailComponent implements OnInit {
         let _id = this.activatedRoute.snapshot.params['id'];
         this.id = _id;
         this.service.getArtists()
-        .subscribe(artists => this.artist = <Artist>artists[this.id-1],
+        .subscribe((artists => this.artist = <Artist>artists[this.id-1]),
         error => this.errorMsg = <any> error );
     }
 
