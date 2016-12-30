@@ -1,0 +1,13 @@
+<div>
+    <input type="text"[(ngModel)]='name'>
+    <input type="text"[(ngModel)]='imgUrl'>
+    <input type="text"[(ngModel)]='genre'>
+    <input type="text"[(ngModel)]='rating'>
+    <button (click) = 'onAddArtistClick()'>Add Artist</button>
+</div>
+
+<div *ngIf='albumAdd'>
+    <input type="text"[(ngModel)]='artistName'>
+    <input type="text" [(ngModel)]='album' >
+    <button (click) ='onAddAlbumClick()'>Add Album</button>
+</div>

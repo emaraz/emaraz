@@ -11,6 +11,7 @@ import {StarsComponent} from './stars.component';
 import {ArtistDetailComponent} from './artist-detail.component';
 import {WelcomeComponent} from './welcome.component';
 import {ArtistFilter} from './filter.pipe';
+import {ArtistAddComponent} from './artist-add.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule,
@@ -29,7 +30,8 @@ import {ArtistFilter} from './filter.pipe';
     }
   ]) ],
   declarations: [ AppComponent, ArtistsComponent,
-    StarsComponent, ArtistDetailComponent, WelcomeComponent, ArtistFilter ],
+    StarsComponent, ArtistDetailComponent, WelcomeComponent, ArtistFilter,
+    ArtistAddComponent ],
   providers: [ArtistService],
   bootstrap:    [ AppComponent ]
 })
